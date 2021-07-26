@@ -1,0 +1,55 @@
+{% extends 'usernavigation.html' %}
+{% block body %}
+
+<style>
+    /* #ff9800  */
+    .warning {
+        border-color: orangered;
+        color: orangered;
+    }
+
+    .warning:hover {
+        background: orangered;
+        color: white;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center">VIEW MY NOTES</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Uploading Date</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Download Notes</th>
+            <th scope="col">File Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in notes %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{item.uploadingdate}}</td>
+            <td>{{item.branch}}</td>
+            <td>{{item.subject}}</td>
+            <td><a href="{{item.notesfile.url}}" download> <button type="submit" class="btn warning">{{item.notesfile}}</button></a></td>
+            <td>{{item.filetype}}</td>
+            <td>{{item.status}}</td>
+            <td><a href="{% url 'deletemynotes' item.id %}" onclick="return confirm('Are You Sure?')"><button type="submit" class="btn warning">Delete</button></a></td>
+
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+     
+   
+   
+</div>
+
+{% endblock body %}

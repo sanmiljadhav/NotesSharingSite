@@ -1,0 +1,125 @@
+{% extends 'usernavigation.html' %}
+{% block body %}
+
+<style>
+    /* #ff9800  */
+    .warning {
+        border-color: orangered;
+        color: orangered;
+    }
+
+    .warning:hover {
+        background: orangered;
+        color: white;
+    }
+
+</style>
+
+<div class="container mt-5">
+   
+    <div class="row">
+        <div class="column-sm-6">
+            <h2 class="text-center" style="font-family: cursive;font-weight: bold;"> Upload Your Notes</h2>
+            <hr>
+            <form method="POST" action="/uploadnotes/" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="Branch" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Enter your Branch</label>
+                    <select class="form-control" name="branch">
+                        <option value="" selected="true" disabled="disabled">---SELECT BRANCH---</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="civil">civil</option>
+                        <option value="mechanical">mechanical</option>
+                        <option value="electrical">electrical</option>
+                        <option value="electronics">electronics</option>
+                    </select> 
+                    
+
+                </div>
+              
+                <div class="mb-3">
+                    <label for="subject" class="form-label" style="font-family: cursive;font-weight: bold;">Enter Subject</label>
+                    <input type="text" name="subject" class="form-control" id="subject"
+                        placeholder="Enter subject">
+                </div>
+
+                <div class="mb-3">
+                    <label for="notesfile" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Notes File</label>
+                    <input type="file" name="notesfile" class="form-control" id="notesfile"
+                        placeholder="Enter Notes File">
+                </div>
+
+                <div class="mb-3">
+                    <label for="filetype" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Enter type of your file</label>
+                    <select class="form-control" name="filetype">
+                        <option value="" selected="true" disabled="disabled">---SELECT FILETYPE---</option>
+                        <option value="PDF">PDF</option>
+                        <option value="PDF">PPT</option>
+                        <option value="DOCX">DOC/DOCX</option>
+                        <option value="IMAGE">IMAGE</option>
+                        <option value="RAR">ZIP/RAR</option>
+                        <option value="TEXT">TXT</option>
+                    </select> 
+                    
+
+                </div>
+
+              
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Enter Description</label>
+                    <textarea name="desc" class="form-control" id="" cols="30" rows="5"></textarea>
+                    
+                </div>
+
+
+               
+
+                <!--
+
+                <div class="mb-3">
+                    <label for="role" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Are You?</label>
+                        <select class="form-control" name="role">
+                            <option value="Student">Student</option>
+                            <option value="Teacher">Teacher</option>
+                        </select>
+                    
+                </div>
+            -->
+
+
+                <button type="submit" class="btn warning">UpLoad</button>
+            </form>
+
+        </div>
+    </div>
+   
+    
+       
+    
+    
+
+
+
+</div>
+{% ifequal error "no" %}
+<script>
+  alert("Notes Uploaded Successfully");
+  window.location.href='/viewmynotes';
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+  alert("Something went wrong, Try Again");
+</script>
+{% endifequal %}
+
+{% endblock body %}

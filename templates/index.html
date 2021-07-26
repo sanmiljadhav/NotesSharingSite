@@ -1,0 +1,93 @@
+{% extends 'navigation.html' %}
+{% block body %}
+
+
+
+<div class="container-fluid px-0">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/img/slider1.jfif
+              " class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/static/img/slider2.jfif
+              " class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/static/img/slider3.jpg
+              " class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+  </div>
+
+  <div class="text-center mt-4 mb-4">
+      <h3>Just 4 steps to Follow</h3>
+  </div>
+
+  <div class="container mt-4">
+      <div class="row">
+          <div class="col-sm-3">
+            <p class="halfcircle text-light"><i class="fas fa-user fa-3x"></i></p>
+            <p class="halfcircleBottom txt text-light"><a href="/register">Create Account</a></p>
+          </div>
+
+          <div class="col-sm-3">
+            <p class="halfcircle text-light"><i class="fas fa-sign-in-alt fa-3x"></i></p>
+            <p class="halfcircleBottom txt text-light"><a href="/login">Login</a></p>
+          </div>
+
+          <div class="col-sm-3">
+            <p class="halfcircle text-light"><i class="fas fa-file-upload fa-3x"></i></p>
+            <p class="halfcircleBottom txt text-light"><a href="/uploadnotes">Upload Notes</a></p>
+          </div>
+
+          <div class="col-sm-3">
+            <p class="halfcircle text-light"><i class="fas fa-download fa-3x"></i></p>
+            <p class="halfcircleBottom txt text-light"><a href="/login">Download Notes</a></p>
+          </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+      </div>
+  </div>
+
+
+{% endblock body %}
+    
+
+

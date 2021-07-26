@@ -1,0 +1,75 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+
+<style>
+    /* #ff9800  */
+    .warning {
+        border-color: orangered;
+        color: orangered;
+    }
+
+    .warning:hover {
+        background: orangered;
+        color: white;
+    }
+
+</style>
+
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="column-sm-6">
+            <h2 class="text-center" style="font-family: cursive;font-weight: bold;"> Assign Status</h2>
+            <hr>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="noteid" class="form-label" style="font-family: cursive;font-weight: bold;">Notes ID</label>
+                    <input type="text" name="noteid" class="form-control" id="noteid"
+                        placeholder="Enter Note ID" value="{{notes.id}}" readonly>
+
+                </div>
+               
+                <div class="mb-3">
+                    <label for="status" class="form-label"
+                        style="font-family: cursive;font-weight: bold;">Status</label>
+                    <select class="form-control" name="status">
+                        <option value="Accepted">Accepted</option>
+                        <option value="Rejected">Rejected</option>
+                         
+                        
+                    </select> 
+                    
+
+                </div>
+
+               
+
+
+                <button type="submit" class="btn warning">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+   
+   
+   
+</div>
+
+{% ifequal error "no" %}
+<script>
+  alert("Status Updated Successfully");
+  window.location.href='/all_notes';
+  
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+  alert("Something went wrong, Try Again");
+</script>
+{% endifequal %}
+
+{% endblock body %}
